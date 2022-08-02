@@ -1,0 +1,19 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "matbar",
+      "password": "Matteoo!",
+      "cf": "BRLMTT02C02F799B"
+    }
+  ],
+  "memo": [
+    {
+      "id": 1,
+      "userId": 1,
+      "data": "08/08/2022",
+      "orario": "10:00",
+      "body": "Ricorda di fare la spesa"
+    }
+  ]
+}
