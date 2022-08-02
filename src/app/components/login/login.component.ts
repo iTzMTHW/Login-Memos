@@ -2,6 +2,7 @@ import { ChiamataHttpService } from './../../services/chiamata-http.service';
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { myForm } from 'src/app/form';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit {
 
   loginUtente : any = myForm()
 
-  constructor(private serv : ChiamataHttpService) { }
+  constructor(private serv : ChiamataHttpService, private router : Router) { }
 
   ngOnInit(): void {
     // this.showGetCall()
@@ -43,50 +44,8 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  // var results = [];
-  // var searchField = "name";
-  // var searchVal = "my Name";
-  // for (var i=0 ; i < obj.list.length ; i++)
-  // {
-  //     if (obj.list[i][searchField] == searchVal) {
-  //         results.push(obj.list[i]);
-  //     }
-  // }
-
-
+  vaiRegistrazione() {
+    this.router.navigateByUrl('registrazione')
+  }
 
 }
-
-  //Validators custom
-  function controlloCF(): ValidatorFn {
-    return (control: AbstractControl): ValidationErrors | null => {
-      const valueCF = control.value
-
-      if (valueCF.length == 16)
-        return null
-      else
-        return { valueNotCorrect: true }
-    }
-  }
-
-  function controlloPass() : ValidatorFn {
-    return (control: AbstractControl): ValidationErrors | null => {
-      const valuePass = control.value
-      let isPresente = false
-
-      if (valuePass.length >= 8) {
-        for (let item = 0 ; item < valuePass.length ; item++) {
-          if (valuePass[item] == '!' || valuePass[item] == '@') {
-            isPresente = true
-            break;
-          } else
-            isPresente = false
-        }
-      }
-
-      if(isPresente)
-        return null
-      else
-        return { formatoErrato : true}
-    }
-  }

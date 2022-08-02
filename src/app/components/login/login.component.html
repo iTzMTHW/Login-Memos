@@ -1,5 +1,4 @@
 <h1>Login page</h1>
-
 <div [formGroup]="loginUtente">
 
   <mat-form-field appearance="fill">
@@ -63,3 +62,5 @@
 <p>{{ loginUtente.value | json }}</p>
 
 <button mat-flat-button color="primary" [disabled]="loginUtente.invalid" (click)="datiUsername()">CONFIRM</button>
+<br>
+<button mat-flat-button color="primary" class="spazioSuperiore" (click)="vaiRegistrazione()">Registrazione</button>

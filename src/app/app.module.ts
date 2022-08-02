@@ -13,11 +13,13 @@ import { MatInputModule } from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
 import {MatButtonModule} from '@angular/material/button';
+import { RegistrazioneComponent } from './components/registrazione/registrazione.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    RegistrazioneComponent
   ],
   imports: [
     BrowserModule,
