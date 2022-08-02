@@ -1,7 +1,7 @@
 import { ChiamataHttpService } from './../../services/chiamata-http.service';
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
-
+import { myForm } from 'src/app/form';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -11,11 +11,7 @@ export class LoginComponent implements OnInit {
   hide = true
   users : any[] = []
 
-  loginUtente = new FormGroup({
-    username: new FormControl('', [Validators.required, Validators.minLength(3)]),
-    password: new FormControl('', [Validators.required, controlloPass()]),
-    codiceFiscale: new FormControl('', [Validators.required, controlloCF()])
-  });
+  loginUtente : any = myForm()
 
   constructor(private serv : ChiamataHttpService) { }
 
