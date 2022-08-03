@@ -4,7 +4,7 @@ export function myForm() {
   return new FormBuilder().group({
     username: new FormControl('', [Validators.required, Validators.minLength(3)]),
     password: new FormControl('', [Validators.required, controlloPass()]),
-    codiceFiscale: new FormControl('', [Validators.required, controlloCF()])
+    cf: new FormControl('', [Validators.required, controlloCF()])
   });
 }
 

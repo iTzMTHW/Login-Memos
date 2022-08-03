@@ -1,1 +1,67 @@
 <button mat-flat-button color="primary" class="spazioSuperiore" (click)="vaiLogin()">Login</button>
+
+<h1>Registration page</h1>
+<div [formGroup]="loginUtente">
+
+  <mat-form-field appearance="fill">
+    <mat-label>Username</mat-label>
+    <input matInput id="username" formControlName="username">
+  </mat-form-field>
+
+  <span
+    class="errore"
+    *ngIf="loginUtente.get('username')?.hasError('minlength')">
+    The username is too short
+  </span>
+
+  <span
+    class="errore"
+    *ngIf="loginUtente.get('username')?.hasError('required') && loginUtente.get('username')?.touched">
+    The username must be entered
+  </span>
+  <br>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Password</mat-label>
+    <input id="password" formControlName="password" matInput [type]="hide ? 'password' : 'text'">
+    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <span
+    class="errore"
+    *ngIf="loginUtente.get('password')?.errors && loginUtente.get('password')?.dirty && loginUtente.get('password')?.hasError('formatoErrato')">
+    Wrong password format
+  </span>
+  <span
+    class="errore"
+    *ngIf="loginUtente.get('password')?.hasError('required') && loginUtente.get('password')?.touched">
+    Password must be entered
+  </span>
+  <br>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Codice Fiscale</mat-label>
+    <input matInput id="cf" formControlName="cf">
+  </mat-form-field>
+
+  <span
+    class="errore"
+    *ngIf="loginUtente.get('cf')?.hasError('required') && loginUtente.get('cf')?.touched">
+    CF must be entered
+  </span>
+
+  <span
+    class="errore"
+    *ngIf="loginUtente.get('cf')?.errors && loginUtente.get('cf')?.dirty && loginUtente.get('cf')?.hasError('valueNotCorrect')">
+    Wrong CF format
+  </span>
+
+</div>
+
+<p>Form Status: {{ loginUtente.status }}</p>
+<p>{{ loginUtente.value | json }}</p>
+
+<button mat-flat-button color="primary" [disabled]="loginUtente.invalid" (click)="effettuaRegistrazione()">CONFIRM</button>
+<br>

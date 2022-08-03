@@ -32,11 +32,12 @@ export class LoginComponent implements OnInit {
   }
 
   datiUsername() {
-    this.serv.utente(this.loginUtente.get('username')?.value!, this.loginUtente.get('password')?.value!, this.loginUtente.get('codiceFiscale')?.value!)
+    this.serv.utente(this.loginUtente.get('username')?.value!, this.loginUtente.get('password')?.value!, this.loginUtente.get('cf')?.value!)
     .subscribe((res: any) => {
       this.users = res
       // console.log(res);
       console.log(this.users);
+      console.log(res.length)
 
       if (res.length > 0)
         console.log("Login effettuato")
