@@ -1,6 +1,8 @@
 import { Router } from '@angular/router';
 import { ChiamataHttpService } from './../../services/chiamata-http.service';
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogCreazioneComponent } from '../dialog-creazione/dialog-creazione.component';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +15,15 @@ export class HomeComponent implements OnInit {
   idUtente : any
   memos : any[] = []
 
-  constructor(private serv : ChiamataHttpService, private router : Router) { }
+  constructor(private serv : ChiamataHttpService, private router : Router, public dialog: MatDialog) { }
+
+  openDialog() {
+    const dialogRef = this.dialog.open(DialogCreazioneComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
 
   ngOnInit(): void {
     this.riceviUsername()

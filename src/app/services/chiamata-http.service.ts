@@ -36,7 +36,6 @@ export class ChiamataHttpService {
   }
 
   getMemos(idUtente : number) {
-    //http://localhost:3000/memo?id=1&userId=1
     return this.http.get<any>(this.urlMemo + '?userId=' + idUtente)
   }
 

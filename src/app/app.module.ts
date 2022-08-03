@@ -17,13 +17,18 @@ import { RegistrazioneComponent } from './components/registrazione/registrazione
 import { HomeComponent } from './components/home/home.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatDialogModule} from '@angular/material/dialog';
+import { DialogCreazioneComponent } from './components/dialog-creazione/dialog-creazione.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegistrazioneComponent,
-    HomeComponent
+    HomeComponent,
+    DialogCreazioneComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +41,9 @@ import {MatDialogModule} from '@angular/material/dialog';
     HttpClientModule,
     MatButtonModule,
     MatCardModule,
-    MatDialogModule
+    MatDialogModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]
