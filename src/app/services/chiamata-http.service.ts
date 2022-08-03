@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, Observable } from 'rxjs';
+import { BehaviorSubject, catchError, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +10,18 @@ export class ChiamataHttpService {
   constructor(private http : HttpClient) { }
 
   url = "http://localhost:3000/users"
+  urlMemo = "http://localhost:3000/memo"
+
+  private subject = new BehaviorSubject<number>(0)
+
+  inviaDato(idUtente : number) {
+    this.subject.next(idUtente)
+  }
+
+  riceviDato():Observable<number> {
+    return this.subject.asObservable()
+  }
+
 
   getDataUsers() {
     return this.http.get<any>(this.url)
@@ -21,6 +33,11 @@ export class ChiamataHttpService {
 
   addUser(data : any): Observable<any> {
     return this.http.post<any>(this.url, data)
+  }
+
+  getMemos(idUtente : number) {
+    //http://localhost:3000/memo?id=1&userId=1
+    return this.http.get<any>(this.urlMemo + '?userId=' + idUtente)
   }
 
 

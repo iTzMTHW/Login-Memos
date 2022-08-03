@@ -14,12 +14,14 @@ import {MatIconModule} from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
 import {MatButtonModule} from '@angular/material/button';
 import { RegistrazioneComponent } from './components/registrazione/registrazione.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegistrazioneComponent
+    RegistrazioneComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

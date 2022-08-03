@@ -1,3 +1,4 @@
+import { HomeComponent } from './components/home/home.component';
 import { RegistrazioneComponent } from './components/registrazione/registrazione.component';
 import { LoginComponent } from './components/login/login.component';
 import { NgModule } from '@angular/core';
@@ -11,6 +12,10 @@ const routes: Routes = [
   {
     component: RegistrazioneComponent,
     path: 'registrazione'
+  },
+  {
+    component: HomeComponent,
+    path: 'home'
   }
 ];
 

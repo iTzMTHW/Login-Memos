@@ -13,11 +13,11 @@ export class LoginComponent implements OnInit {
   users : any[] = []
 
   loginUtente : any = myForm()
+  idUtenteLoggato : number = 0
 
   constructor(private serv : ChiamataHttpService, private router : Router) { }
 
   ngOnInit(): void {
-    // this.showGetCall()
   }
 
   //Funzione per prendere i dati dalla richeista Http
@@ -35,12 +35,18 @@ export class LoginComponent implements OnInit {
     this.serv.utente(this.loginUtente.get('username')?.value!, this.loginUtente.get('password')?.value!, this.loginUtente.get('cf')?.value!)
     .subscribe((res: any) => {
       this.users = res
-      // console.log(res);
-      console.log(this.users);
-      console.log(res.length)
+      // console.log(this.users);
+      // console.log(res.length)
 
-      if (res.length > 0)
+      if (res.length > 0) {
         console.log("Login effettuato")
+        this.router.navigateByUrl('home')
+        this.idUtenteLoggato = res[0].id
+        this.serv.inviaDato(this.idUtenteLoggato)
+
+      } else
+        alert("Utente non registrato")
+
 
     });
   }

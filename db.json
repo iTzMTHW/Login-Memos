@@ -26,6 +26,13 @@
       "data": "08/08/2022",
       "orario": "10:00",
       "body": "Ricorda di fare la spesa"
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "data": "09/08/2022",
+      "orario": "10:09",
+      "body": "Ricorda di pagare le bollette"
     }
   ]
 }
