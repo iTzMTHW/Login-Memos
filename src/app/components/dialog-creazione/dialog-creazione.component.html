@@ -15,4 +15,34 @@
     The data must be chosen.
   </span>
 
+  <br>
+  <label for="orario">Orario</label>
+  <input type="time" value="13:30" formControlName="orario" id="orario" matInput>
+  <span
+    class="errore"
+    *ngIf="creazioneMemo.get('orario')?.hasError('required') && creazioneMemo.get('orario')?.touched"> <br>
+    The time must be chosen.
+  </span>
+
+  <br>
+  <mat-form-field appearance="fill">
+    <mat-label>Textarea</mat-label>
+    <textarea matInput formControlName="body" id="body"></textarea>
+  </mat-form-field>
+
+  <span
+    class="errore"
+    *ngIf="creazioneMemo.get('body')?.hasError('required') && creazioneMemo.get('body')?.touched"> <br>
+    The body must be entered.
+  </span>
+  <span
+    class="errore"
+    *ngIf="creazioneMemo.get('body')?.hasError('minlength') && creazioneMemo.get('body')?.touched"> <br>
+    The body is too short.
+  </span>
+
+
 </div>
+
+<button mat-button mat-dialog-close>Close</button>
+<button mat-button mat-dialog-close (click)="funzione()" [disabled]="creazioneMemo.invalid">Create</button>

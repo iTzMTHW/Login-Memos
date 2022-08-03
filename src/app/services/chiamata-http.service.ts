@@ -39,5 +39,9 @@ export class ChiamataHttpService {
     return this.http.get<any>(this.urlMemo + '?userId=' + idUtente)
   }
 
+  addMemo(memo : any) {
+    return this.http.post<any>(this.urlMemo, memo)
+  }
+
 
 }
