@@ -13,11 +13,13 @@ export class LoginComponent implements OnInit {
   users : any[] = []
 
   loginUtente : any = myForm()
-  idUtenteLoggato : number = 0
+  utenteLoggato : any
 
   constructor(private serv : ChiamataHttpService, private router : Router) { }
 
   ngOnInit(): void {
+    console.log("UTENTE LOGGATO ADESSO: " + this.utenteLoggato);
+
   }
 
   //Funzione per prendere i dati dalla richeista Http
@@ -41,8 +43,8 @@ export class LoginComponent implements OnInit {
       if (res.length > 0) {
         console.log("Login effettuato")
         this.router.navigateByUrl('home')
-        this.idUtenteLoggato = res[0].id
-        this.serv.inviaDato(this.idUtenteLoggato)
+        this.utenteLoggato = res[0]
+        this.serv.inviaDato(this.utenteLoggato)
 
       } else
         alert("Utente non registrato")

@@ -15,6 +15,8 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatButtonModule} from '@angular/material/button';
 import { RegistrazioneComponent } from './components/registrazione/registrazione.component';
 import { HomeComponent } from './components/home/home.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { HomeComponent } from './components/home/home.component';
     MatInputModule,
     MatIconModule,
     HttpClientModule,
-    MatButtonModule
+    MatButtonModule,
+    MatCardModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

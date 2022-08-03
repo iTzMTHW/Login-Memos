@@ -12,13 +12,13 @@ export class ChiamataHttpService {
   url = "http://localhost:3000/users"
   urlMemo = "http://localhost:3000/memo"
 
-  private subject = new BehaviorSubject<number>(0)
+  private subject = new BehaviorSubject<any>([])
 
-  inviaDato(idUtente : number) {
-    this.subject.next(idUtente)
+  inviaDato(utente : any) {
+    this.subject.next(utente)
   }
 
-  riceviDato():Observable<number> {
+  riceviDato():Observable<any> {
     return this.subject.asObservable()
   }
 
