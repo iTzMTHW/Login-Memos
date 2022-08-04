@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        console.log(`Dialog result: ${result.body}`);
+        // console.log(`Dialog result: ${result.body}`);
         let memo = result
         memo.userId = this.idUtente
         this.serv.addMemo(memo).subscribe((d) => {
@@ -62,16 +62,16 @@ export class HomeComponent implements OnInit {
     console.log("UTENTE LOGGATO: " + this.utenteLoggato.username)
   }
 
-  eliminaMemo(id : number) {
+  eliminaMemo(id : number, indice : number) {
     const dialogRef = this.dialog.open(DialogDeleteComponent);
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result.body}`);
       if (result) {
-        this.serv.deleteMemo(id + 1).subscribe((res : any) => {
+        this.serv.deleteMemo(id).subscribe((res : any) => {
         console.log(res.value)
         })
-        this.memos.splice(id, 1)
+        this.memos.splice(indice, 1)
         console.log(this.memos)
       }
     });

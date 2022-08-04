@@ -10,7 +10,7 @@
       <p>{{ item.body }}</p>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-flat-button color="warn" (click)="eliminaMemo(i)">Delete</button>
+      <button mat-flat-button color="warn" (click)="eliminaMemo(item.id, i)">Delete</button>
       <button mat-flat-button color="accent" class="spazio" (click)="modificaMemo(i)">Update</button>
     </mat-card-actions>
   </mat-card>
