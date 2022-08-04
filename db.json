@@ -37,9 +37,23 @@
     {
       "id": 3,
       "userId": 1,
-      "data":"09/08/2022",
+      "data": "09/08/2022",
       "orario": "12:49",
       "body": "Ricorda di lavare la macchina"
+    },
+    {
+      "data": "2022-08-07T22:00:00.000Z",
+      "orario": "10:30",
+      "body": "Questo è un promemoria di prova",
+      "userId": 1,
+      "id": 4
+    },
+    {
+      "data": "2022-08-08T22:00:00.000Z",
+      "orario": "23:59",
+      "body": "Questa sarà la notte di san Lorenzo",
+      "userId": 1,
+      "id": 5
     }
   ]
 }

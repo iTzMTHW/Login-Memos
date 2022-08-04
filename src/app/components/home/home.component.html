@@ -1,5 +1,6 @@
 <h1>Hello, {{ this.utenteLoggato.username }}</h1>
-<button mat-flat-button color="warn" (click)="logout()">Logout</button>
+<button mat-flat-button color="warn" (click)="logout()" class="spazio">Logout</button>
+<button mat-raised-button color="primary" (click)="openDialog()" class="spazio">Create</button>
 
 <div *ngFor="let item of memos, let i = index">
   <mat-card>
@@ -10,9 +11,8 @@
     </mat-card-content>
     <mat-card-actions>
       <button mat-flat-button color="warn">Delete</button>
-      <button mat-flat-button color="accent" style="margin-left: 5px;">Update</button>
+      <button mat-flat-button color="accent" class="spazio">Update</button>
     </mat-card-actions>
   </mat-card>
 </div>
 
-<button mat-button (click)="openDialog()">Open dialog</button>

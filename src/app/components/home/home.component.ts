@@ -20,9 +20,16 @@ export class HomeComponent implements OnInit {
   openDialog() {
     const dialogRef = this.dialog.open(DialogCreazioneComponent);
 
-    // dialogRef.afterClosed().subscribe(result => {
-    //   console.log(`Dialog result: ${result}`);
-    // });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result.body}`);
+      if (result) {
+        let memo = result
+        memo.userId = this.idUtente
+        this.serv.addMemo(memo).subscribe((d) => {
+        this.memos.push(d)
+      })
+      }
+    });
   }
 
   ngOnInit(): void {

@@ -24,24 +24,43 @@ export class ChiamataHttpService {
 
 
   getDataUsers() {
-    return this.http.get<any>(this.url)
+    return this.http.get<User[]>(this.url)
   }
 
   utente(username : string, password : string, codiceFiscale : string) {
-    return this.http.get<any>(this.url + '?username=' + username + '&password=' + password + '&cf=' + codiceFiscale)
+    return this.http.get<User[]>(this.url + '?username=' + username + '&password=' + password + '&cf=' + codiceFiscale)
   }
 
   addUser(data : any): Observable<any> {
-    return this.http.post<any>(this.url, data)
+    return this.http.post<User>(this.url, data)
   }
 
   getMemos(idUtente : number) {
-    return this.http.get<any>(this.urlMemo + '?userId=' + idUtente)
+    return this.http.get<Memo[]>(this.urlMemo + '?userId=' + idUtente)
   }
 
   addMemo(memo : any) {
-    return this.http.post<any>(this.urlMemo, memo)
+    return this.http.post<Memo>(this.urlMemo, memo)
+  }
+
+  deleteMemo(id: number) {
+    return this.http.delete<Memo>(this.urlMemo + '/' + id)
   }
 
 
+}
+
+export interface Memo {
+  "id": number,
+  "userId": number,
+  "data": string,
+  "orario": string,
+  "body": string
+}
+
+export interface User {
+  "id": number,
+  "username": string,
+  "password": string,
+  "cf": string
 }
