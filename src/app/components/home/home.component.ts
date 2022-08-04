@@ -3,6 +3,7 @@ import { ChiamataHttpService } from './../../services/chiamata-http.service';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogCreazioneComponent } from '../dialog-creazione/dialog-creazione.component';
+import { DialogDeleteComponent } from '../dialog-delete/dialog-delete.component';
 
 @Component({
   selector: 'app-home',
@@ -58,5 +59,20 @@ export class HomeComponent implements OnInit {
     this.serv.inviaDato(this.utenteLoggato)
     this.router.navigateByUrl('')
     console.log("UTENTE LOGGATO: " + this.utenteLoggato.username)
+  }
+
+  eliminaMemo(id : number) {
+    const dialogRef = this.dialog.open(DialogDeleteComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result.body}`);
+      if (result) {
+        this.serv.deleteMemo(id).subscribe((res : any) => {
+        console.log(res.value)
+        })
+        this.memos.splice(id, 1)
+        console.log(this.memos)
+      }
+    });
   }
 }

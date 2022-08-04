@@ -21,13 +21,6 @@
   ],
   "memo": [
     {
-      "id": 1,
-      "userId": 1,
-      "data": "08/08/2022",
-      "orario": "10:00",
-      "body": "Ricorda di fare la spesa"
-    },
-    {
       "id": 2,
       "userId": 2,
       "data": "09/08/2022",
@@ -35,25 +28,11 @@
       "body": "Ricorda di pagare le bollette"
     },
     {
-      "id": 3,
+      "data": "2022-08-15T22:00:00.000Z",
+      "orario": "11:14",
+      "body": "Ciaoooooooo",
       "userId": 1,
-      "data": "09/08/2022",
-      "orario": "12:49",
-      "body": "Ricorda di lavare la macchina"
-    },
-    {
-      "data": "2022-08-07T22:00:00.000Z",
-      "orario": "10:30",
-      "body": "Questo è un promemoria di prova",
-      "userId": 1,
-      "id": 4
-    },
-    {
-      "data": "2022-08-08T22:00:00.000Z",
-      "orario": "23:59",
-      "body": "Questa sarà la notte di san Lorenzo",
-      "userId": 1,
-      "id": 5
+      "id": 3
     }
   ]
 }
