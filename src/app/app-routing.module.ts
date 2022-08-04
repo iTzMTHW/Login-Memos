@@ -3,6 +3,7 @@ import { RegistrazioneComponent } from './components/registrazione/registrazione
 import { LoginComponent } from './components/login/login.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { GuardiaGuard } from './guardia.guard';
 
 const routes: Routes = [
   {
@@ -15,7 +16,8 @@ const routes: Routes = [
   },
   {
     component: HomeComponent,
-    path: 'home'
+    path: 'home',
+    canActivate: [GuardiaGuard]
   }
 ];
 

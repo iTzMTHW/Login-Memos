@@ -13,6 +13,7 @@ export class ChiamataHttpService {
   urlMemo = "http://localhost:3000/memo"
 
   private subject = new BehaviorSubject<any>([])
+  private sub = new BehaviorSubject<boolean>(false)
 
   inviaDato(utente : any) {
     this.subject.next(utente)
@@ -50,6 +51,14 @@ export class ChiamataHttpService {
   updateMemo(memo : Memo) {
     let id = memo.id + 1
     return this.http.patch<Memo>("http://localhost:3000/memo/" + id, memo)
+  }
+
+  inviaAccesso(isLoggato : boolean) {
+    this.sub.next(isLoggato)
+  }
+
+  riceviAccesso() {
+    return this.sub;
   }
 
 }

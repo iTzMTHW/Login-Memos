@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
 
   loginUtente : any = myForm()
   utenteLoggato : any
+  isLoggato = false
 
   constructor(private serv : ChiamataHttpService, private router : Router) { }
 
@@ -42,9 +43,12 @@ export class LoginComponent implements OnInit {
 
       if (res.length > 0) {
         console.log("Login effettuato")
+        this.isLoggato = true
+        this.serv.inviaAccesso(this.isLoggato)
         this.router.navigateByUrl('home')
         this.utenteLoggato = res[0]
         this.serv.inviaDato(this.utenteLoggato)
+
 
       } else
         alert("Utente non registrato")
