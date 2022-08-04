@@ -12,13 +12,11 @@ import { MatDialogRef } from '@angular/material/dialog';
 export class DialogCreazioneComponent implements OnInit {
 
   creazioneMemo : FormGroup = formCreazione()
-  minDate : Date;
-  maxDate : Date;
+  minDate : string;
+
 
   constructor(private serv : ChiamataHttpService, public dialogRef: MatDialogRef<DialogCreazioneComponent>) {
-    const currentYear = new Date().getFullYear();
-    this.minDate = new Date();
-    this.maxDate = new Date(currentYear + 10, 11, 31);
+    this.minDate = new Date().toISOString().split('T')[0];
   }
 
   ngOnInit(): void {

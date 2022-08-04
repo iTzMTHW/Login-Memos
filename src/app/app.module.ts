@@ -21,6 +21,7 @@ import { DialogCreazioneComponent } from './components/dialog-creazione/dialog-c
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import { DialogDeleteComponent } from './components/dialog-delete/dialog-delete.component';
+import { DialogUpdateComponent } from './components/dialog-update/dialog-update.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { DialogDeleteComponent } from './components/dialog-delete/dialog-delete.
     RegistrazioneComponent,
     HomeComponent,
     DialogCreazioneComponent,
-    DialogDeleteComponent
+    DialogDeleteComponent,
+    DialogUpdateComponent
   ],
   imports: [
     BrowserModule,

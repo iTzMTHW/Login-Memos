@@ -44,9 +44,13 @@ export class ChiamataHttpService {
   }
 
   deleteMemo(id: number) {
-    return this.http.delete<Memo>(this.urlMemo + '/' + id)
+    return this.http.delete<Memo>("http://localhost:3000/memo/" + id)
   }
 
+  updateMemo(memo : Memo) {
+    let id = memo.id + 1
+    return this.http.patch<Memo>("http://localhost:3000/memo/" + id, memo)
+  }
 
 }
 

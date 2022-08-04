@@ -21,18 +21,18 @@
   ],
   "memo": [
     {
-      "id": 2,
-      "userId": 2,
-      "data": "09/08/2022",
-      "orario": "10:09",
-      "body": "Ricorda di pagare le bollette"
+      "data": "2022-08-09",
+      "orario": "12:02",
+      "body": "Ricorda di lavare la macchina",
+      "userId": 1,
+      "id": 1
     },
     {
-      "data": "2022-08-15T22:00:00.000Z",
-      "orario": "11:14",
-      "body": "Ciaoooooooo",
+      "data": "2022-08-10",
+      "orario": "12:10",
+      "body": "Ricorda di fare la spesa",
       "userId": 1,
-      "id": 3
+      "id": 2
     }
   ]
 }

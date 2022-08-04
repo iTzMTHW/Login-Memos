@@ -1,0 +1,29 @@
+<h1>Creazione promemoria</h1>
+<div [formGroup]="updateMemo">
+
+  <mat-form-field appearance="fill">
+    <mat-label>Data</mat-label>
+    <input matInput [min]="minDate" formControlName="data" id="data" type="date">
+  </mat-form-field>
+
+  <br>
+  <label for="orario">Orario</label>
+  <input type="time" formControlName="orario" id="orario" matInput>
+
+  <br>
+  <mat-form-field appearance="fill">
+    <mat-label>Textarea</mat-label>
+    <textarea matInput formControlName="body" id="body"></textarea>
+  </mat-form-field>
+
+  <span
+    class="errore"
+    *ngIf="updateMemo.get('body')?.hasError('minlength') && updateMemo.get('body')?.touched"> <br>
+    The body is too short.
+  </span>
+
+
+</div>
+
+<button mat-button mat-dialog-close>Close</button>
+<button mat-button (click)="funzione()" [disabled]="!updateMemo.dirty || updateMemo.invalid">Update</button>

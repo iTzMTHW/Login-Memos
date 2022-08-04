@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogCreazioneComponent } from '../dialog-creazione/dialog-creazione.component';
 import { DialogDeleteComponent } from '../dialog-delete/dialog-delete.component';
+import { DialogUpdateComponent } from '../dialog-update/dialog-update.component';
 
 @Component({
   selector: 'app-home',
@@ -22,8 +23,8 @@ export class HomeComponent implements OnInit {
     const dialogRef = this.dialog.open(DialogCreazioneComponent);
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result.body}`);
       if (result) {
+        console.log(`Dialog result: ${result.body}`);
         let memo = result
         memo.userId = this.idUtente
         this.serv.addMemo(memo).subscribe((d) => {
@@ -67,12 +68,33 @@ export class HomeComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result.body}`);
       if (result) {
-        this.serv.deleteMemo(id).subscribe((res : any) => {
+        this.serv.deleteMemo(id + 1).subscribe((res : any) => {
         console.log(res.value)
         })
         this.memos.splice(id, 1)
         console.log(this.memos)
       }
+    });
+  }
+
+  modificaMemo(id : number) {
+    const dialogRef = this.dialog.open(DialogUpdateComponent, {
+      data : this.memos[id]
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      // console.log(`Dialog result: ${result.body}`);
+      if (result) {
+        let memo = result
+        memo.id = id
+        // console.log(memo)
+        this.serv.updateMemo(memo).subscribe((res : any) => {
+          this.memos[id] = res
+          console.log(this.memos)
+        })
+      }
+
+
     });
   }
 }

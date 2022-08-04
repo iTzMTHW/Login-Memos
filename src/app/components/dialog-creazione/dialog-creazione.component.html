@@ -3,10 +3,7 @@
 
   <mat-form-field appearance="fill">
     <mat-label>Data</mat-label>
-    <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="dp3" [disabled]="true" formControlName="data" id="data">
-    <mat-hint>MM/DD/YYYY</mat-hint>
-    <mat-datepicker-toggle matSuffix [for]="dp3" ></mat-datepicker-toggle>
-    <mat-datepicker #dp3 disabled="false"></mat-datepicker>
+    <input matInput [min]="minDate" formControlName="data" id="data" type="date">
   </mat-form-field>
 
   <span
